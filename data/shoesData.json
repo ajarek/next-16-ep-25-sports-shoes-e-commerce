@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "name": "Air Jordan 3 Retro",
+        "category": "Man",
+        "price": 150,
+        "image": "/AIR+JORDAN+3.avif",
+        "description": "These Jordans are fresher than a spring bouquet. Crisp leather in Sail acts as the perfect canvas for Jade Aura and Iris Whisper details to bloom along the upper. Aura pink on the logo and outsole tie the look together, and elephant print is embroidered on the heel for a delicate finish."
+    },
+    {
+        "id": 2,
+        "name": "Jordan MVP 92",
+        "category": "Man",
+        "price": 150,
+        "image": "/JORDAN+MVP+92.avif",
+        "description": "How do you top the AJ7? You reimagine it with a low-top silhouette. We started with the layered upper and iconic midsole that turned the original into an instant classic. Then we added textile accents and a padded, low-cut collar to give you a fresh, modern look."
+    },
+    {
+        "id": 3,
+        "name": "Nike Pegasus Premium",
+        "category": "Man",
+        "price": 150,
+        "image": "/NIKE+PEGASUS+PREMIUM.avif",
+        "description": "The Pegasus Premium supercharges responsive cushioning with a triple stack of our most powerful running technologies: ZoomX foam, a sculpted Air Zoom unit and ReactX foam. It’s the most responsive Pegasus ever, providing high energy return unlike any other. With a lighter-than-air upper, it decreases weight and increases breathability so you can fly faster."
+    },
+    {
+        "id": 4,
+        "name": "Nike Metcon 10",
+        "category": "Woman",
+        "price": 150,
+        "image": "/W+NIKE+METCON+10.avif",
+        "description": "Power your cross-training potential with the Metcon 10. It optimizes stability for your heavier lifts with an ultra-strong Hyperlift plate and levels up mobility with responsive ReactX foam. With increased energy return and a lighter weight than the Metcon 9, it helps you conquer any movement your workout demands."
+    },
+    {
+        "id": 5,
+        "name": "Nike Air Max Plus",
+        "category": "Man",
+        "price": 150,
+        "image": "/NIKE+AIR+MAX+PLUS.avif",
+        "description": "Let your attitude have the edge in the Air Max Plus. Its iconic caging adds heat to your look while airy mesh keeps you cool. And the visible cushioning lets you celebrate your defiant style in comfort."
+    },
+    {
+        "id": 6,
+        "name": "Air Jordan 1 Low",
+        "category": "Man",
+        "price": 150,
+        "image": "/AIR+JORDAN+1+LOW.avif",
+        "description": "Inspired by the original that debuted in 1985, the Air Jordan 1 Low offers a clean, classic look that's familiar yet always fresh. With an iconic design that pairs perfectly with any 'fit, these kicks ensure you'll always be on point."
+    },
+    {
+        "id": 7,
+        "name": "Nike Shox Z",
+        "category": "Woman",
+        "price": 150,
+        "image": "/W+NIKE+SHOX+Z.avif",
+        "description": "Your favorite retro runner has reached its next evolution. The Shox Z has a slim, low-profile shape and a new take on the iconic column design."
+    },
+    {
+        "id": 8,
+        "name": "Jordan Jumpman Pro",
+        "category": "Man",
+        "price": 150,
+        "image": "/JORDAN+JUMPMAN+PRO.avif",
+        "description": "It's time for a comeback. The 25th anniversary of the Jumpman Pro marks the return of this sleek, minimal shoe made with extra-luxe materials. With leather in the upper, plenty of Air cushioning in the sole, and just the right amount of bling, these premium kicks are a celebration of style and comfort. Cheers to that."
+    },
+    {
+        "id": 9,
+        "name": "Nike Air Max Plus OG",
+        "category": "Man",
+        "price": 150,
+        "image": "/NIKE+AIR+MAX+PLUS+OG.avif",
+        "description": " Like every Air Max Plus, this one has structured caging and visible cushioning. Unlike others, this edition honors your favorite squad with team colors and its signature crest."
+    },
+    {
+        "id": 10,
+        "name": "Nike Air Zoom Pegasus 42",
+        "category": "Woman",
+        "price": 150,
+        "image": "/W+NIKE+AIR+ZOOM+PEGASUS+42.avif",
+        "description": "Responsive cushioning in the Pegasus 42 provides an energized ride for everyday road runs. Experience power in every stride thanks to the propulsive feel of a curved, full-length Air Zoom unit and a ReactX foam midsole. An updated fit gives you more space in the forefoot and toe box."
+    },
+    {
+        "id": 11,
+        "name": "Nike Air Zoom Bella 7",
+        "category": "Woman",
+        "price": 150,
+        "image": "/W+NIKE+AIR+ZOOM+BELLA+7.avif",
+        "description": "Stay sturdy and strong whether in the middle of a set or moving to the beat of your favorite workout in the Bella 7. Air Zoom cushioning offers the right combination of high-level stability and softness. And a new mesh upper stretches, breathes and goes great with different outfit options for all-day wearability once your work is done."
+    },
+    {
+        "id": 12,
+        "name": "Nike Air Max Muse",
+        "category": "Woman",
+        "price": 150,
+        "image": "/WMNS+NIKE+AIR+MAX+MUSE.avif",
+        "description": "The Air Max Muse is a bold, futuristic addition to the Air Max family. Its exaggerated proportions, sleek finishes and unexpectedly high arch showcase the shoe’s namesake Air technology. A new era of expression is here. Are you ready?"
+    },
+    {
+        "id": 13,
+        "name": "Air Jordan 3 Retro OG",
+        "category": "Woman",
+        "price": 150,
+        "image": "/AIR+JORDAN+3+RETRO+OG.avif",
+        "description": "These Jordans are fresher than a spring bouquet. Crisp leather in Sail acts as the perfect canvas for Jade Aura and Iris Whisper details to bloom along the upper. Aura pink on the logo and outsole tie the look together, and elephant print is embroidered on the heel for a delicate finish."
+    },
+    {
+        "id": 14,
+        "name": "Nike Free Metcon 6",
+        "category": "Woman",
+        "price": 150,
+        "image": "/W+NIKE+FREE+METCON+6.avif",
+        "description": "The Free Metcon 6 opens your world of workout possibilities. We added even more forefoot flexibility to our most adaptable trainer and reinforced the heel with extra foam. That means more freedom for dynamic movements during plyos and cardio classes, plus the stable base you need for weights."
+    }
+]
