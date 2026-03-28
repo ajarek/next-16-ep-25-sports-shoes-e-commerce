@@ -39,7 +39,7 @@ export default function AllShoes() {
             <CardHeader></CardHeader>
             <CardContent className='flex flex-col gap-2 pb-4'>
               <CardTitle>{shoe.name}</CardTitle>
-              <CardDescription className='text-2xl text-secondary'>
+              <CardDescription className='text-2xl '>
                 ${shoe.price}
               </CardDescription>
               <CardAction className='w-full flex justify-end gap-2'>
