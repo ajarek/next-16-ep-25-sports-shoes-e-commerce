@@ -16,11 +16,12 @@ type ButtonSize = "default" | "sm" | "lg" | "icon" | "icon-sm" | "icon-lg"
 interface ThreedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   size?: ButtonSize
+  link?: string
   children?: React.ReactNode
 }
 
 const ThreedButton = React.forwardRef<HTMLButtonElement, ThreedButtonProps>(
-  ({ className, disabled = false, children, ...props }, ref) => {
+  ({ className, disabled = false, link, children, ...props }, ref) => {
     const [isPressed, setIsPressed] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
     const router = useRouter()
@@ -93,7 +94,7 @@ const ThreedButton = React.forwardRef<HTMLButtonElement, ThreedButtonProps>(
           }}
           onMouseDown={() => setIsPressed(true)}
           onMouseUp={() => setIsPressed(false)}
-          onClick={() => router.push("/all")}
+          onClick={() => router.push(`${link}`)}
           {...props}
         >
           <span className='relative z-10'>{children ?? "Hover Me"}</span>

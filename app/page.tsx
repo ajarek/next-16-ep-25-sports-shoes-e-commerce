@@ -19,7 +19,7 @@ export default function Home() {
           className='lg:object-cover object-contain hover:scale-110 transition-transform duration-800'
         />
         <div className='absolute bottom-5 left-1/2 transform -translate-x-1/2 '>
-          <ThreedButton className='flex items-center justify-center gap-2'>
+          <ThreedButton className='flex items-center justify-center gap-2' link="/all">
             <ShoppingBag className='md:size-6 size-4 mr-2' />
             Shop Now
           </ThreedButton>

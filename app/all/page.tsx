@@ -17,6 +17,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import PremiumButton from "@/components/pixel-perfect/premium-button"
 
 export default function AllShoes() {
   return (
@@ -43,18 +44,9 @@ export default function AllShoes() {
                 ${shoe.price}
               </CardDescription>
               <CardAction className='w-full flex justify-end gap-2'>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button asChild size='icon' className='bg-secondary text-secondary-foreground hover:bg-secondary/80 md:text-xl text-lg  md:h-12 h-8 w-8 md:w-12 cursor-pointer'>
-                      <Link href={`/details/${shoe.id}`}>
-                        <ShoppingCart className='size-6 md:size-8' />
-                      </Link>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p className='text-lg'>Add to cart</p>
-                  </TooltipContent>
-                </Tooltip>
+                <PremiumButton link={`/details/${shoe.id}`}>
+                  <ShoppingCart className='size-6 md:size-8' />
+                </PremiumButton>
                
               </CardAction>
             </CardContent>

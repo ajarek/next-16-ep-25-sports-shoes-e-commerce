@@ -10,6 +10,7 @@ import type { Product } from "@/types/typeProduct"
 import { useAuth } from "@clerk/nextjs"
 import { toast } from "sonner"
 import { useRouter } from 'next/navigation'
+import { cn } from "@/lib/utils"
 
 const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = use(params)
@@ -41,7 +42,7 @@ const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   return (
-    <div className='min-h-[calc(100vh-64px)] w-full grid grid-cols-1 md:grid-cols-2 place-items-center p-4 md:p-8'>
+    <div className='min-h-[calc(100vh-64px)] w-full grid grid-cols-1 md:grid-cols-2 place-items-center p-4 md:p-8 gap-4'>
       <div className='relative  overflow-hidden rounded-lg shadow-xl'>
         <Image
           src={shoe?.image || ""}
@@ -64,7 +65,14 @@ const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
             {sizeData.map((size) => (
               <Button
                 key={size.id}
-                className='bg-muted text-muted-foreground hover:bg-muted/80 md:text-xl text-md   md:h-12 h-8 w-8 md:w-12 cursor-pointer focus:bg-secondary/80 focus:text-secondary-foreground'
+               className={cn(
+                    "bg-muted text-muted-foreground px-4 py-3 rounded-md cursor-pointer font-medium transition-all active:scale-95",
+                    "md:h-12 h-8 w-8 md:w-12 text-md md:text-xl cursor-pointer hover:bg-transparent focus:bg-secondary/80 focus:text-secondary-foreground"
+                  )}
+                  style={{
+                    boxShadow:
+                      "0.444584px 0.444584px 0.628737px -1px rgba(0, 0, 0, 0.26), 1.21072px 1.21072px 1.71222px -1.5px rgba(0, 0, 0, 0.247), 2.6583px 2.6583px 3.75941px -2.25px rgba(0, 0, 0, 0.23), 5.90083px 5.90083px 8.34503px -3px rgba(0, 0, 0, 0.192), 10px 10px 21.2132px -3.75px rgba(0, 0, 0, 0.055), -0.5px -0.5px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px rgba(0, 0, 0, 0.15)",
+                  }}
                 onClick={() => setSelectedSize(size.size)}
               >
                 {size.size}
@@ -76,25 +84,47 @@ const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
           </div>
         </div>
         {/*quantity*/}
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-4'>
           <h2 className='text-xl font-bold'>Quantity</h2>
           <div className='flex items-center gap-2'>
             <Button
               disabled={count === 1}
               onClick={() => setCount(count - 1)}
-              className='bg-secondary text-secondary-foreground hover:bg-secondary/80 md:text-xl text-lg   md:h-12 h-8 w-8 md:w-12 cursor-pointer'
+             className={cn(
+                    "bg-muted text-muted-foreground px-4 py-3 rounded-md cursor-pointer font-medium transition-all active:scale-95",
+                    "md:h-12 h-8 w-8 md:w-12 text-md md:text-xl cursor-pointer hover:bg-transparent"
+                  )}
+                  style={{
+                    boxShadow:
+                      "0.444584px 0.444584px 0.628737px -1px rgba(0, 0, 0, 0.26), 1.21072px 1.21072px 1.71222px -1.5px rgba(0, 0, 0, 0.247), 2.6583px 2.6583px 3.75941px -2.25px rgba(0, 0, 0, 0.23), 5.90083px 5.90083px 8.34503px -3px rgba(0, 0, 0, 0.192), 10px 10px 21.2132px -3.75px rgba(0, 0, 0, 0.055), -0.5px -0.5px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px rgba(0, 0, 0, 0.15)",
+                  }}
             >
               <Minus className='size-6' />
             </Button>
             <span className='text-2xl'>{count}</span>
             <Button
               onClick={() => setCount(count + 1)}
-              className='bg-secondary text-secondary-foreground hover:bg-secondary/80 md:text-xl text-lg   md:h-12 h-8 w-8 md:w-12 cursor-pointer '
+             className={cn(
+                    "bg-muted text-muted-foreground px-4 py-3 rounded-md cursor-pointer font-medium transition-all active:scale-95",
+                    "md:h-12 h-8 w-8 md:w-12 text-md md:text-xl cursor-pointer hover:bg-transparent"
+                  )}
+                  style={{
+                    boxShadow:
+                      "0.444584px 0.444584px 0.628737px -1px rgba(0, 0, 0, 0.26), 1.21072px 1.21072px 1.71222px -1.5px rgba(0, 0, 0, 0.247), 2.6583px 2.6583px 3.75941px -2.25px rgba(0, 0, 0, 0.23), 5.90083px 5.90083px 8.34503px -3px rgba(0, 0, 0, 0.192), 10px 10px 21.2132px -3.75px rgba(0, 0, 0, 0.055), -0.5px -0.5px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px rgba(0, 0, 0, 0.15)",
+                  }}
             >
               <Plus className='size-6' />
             </Button>
           </div>
-          <Button className='bg-secondary text-secondary-foreground hover:bg-secondary/80 md:text-xl text-lg   md:h-12 h-8 cursor-pointer' onClick={handleAddToCart}>
+          <Button  
+                  className={cn(
+                    "bg-muted text-muted-foreground px-4 py-3 rounded-md cursor-pointer font-medium transition-all active:scale-95",
+                    "md:h-12 h-8 text-md md:text-xl cursor-pointer hover:bg-transparent"
+                  )}
+                  style={{
+                    boxShadow:
+                      "0.444584px 0.444584px 0.628737px -1px rgba(0, 0, 0, 0.26), 1.21072px 1.21072px 1.71222px -1.5px rgba(0, 0, 0, 0.247), 2.6583px 2.6583px 3.75941px -2.25px rgba(0, 0, 0, 0.23), 5.90083px 5.90083px 8.34503px -3px rgba(0, 0, 0, 0.192), 10px 10px 21.2132px -3.75px rgba(0, 0, 0, 0.055), -0.5px -0.5px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px rgba(0, 0, 0, 0.15)",
+                  }} onClick={handleAddToCart}>
             Add to cart
           </Button>
         </div>
