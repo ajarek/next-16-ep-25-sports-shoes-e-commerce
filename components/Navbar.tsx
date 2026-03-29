@@ -3,14 +3,17 @@ import { ModeToggle } from "./ModeToggle"
 import Link from "next/link"
 import { SheetNav } from "./SheetNav"
 
-import { BookText, CreditCard, Home, ShoppingCart, SportShoe } from "lucide-react"
+import { LogIn, LogOut, ShoppingCart, SportShoe, UserPlus } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 import { Button } from "./ui/button"
 import { navLinks } from "@/data/nav-links"
+import { useCartStore } from "@/store/cartStore"
 const Navbar = () => {
   const pathname = usePathname()
+  const cartItems = useCartStore((state) => state.items)
+  const lengthItems = cartItems.reduce((acc, item) => acc + item.quantity, 0)
   return (
     <div className='h-16 w-full max-w-8xl mx-auto border-b-2 border-primary flex justify-between items-center px-4'>
       <Link href='/' className='flex items-center gap-2'>
@@ -33,13 +36,18 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
+        <Link href='/cart' className='relative flex items-center gap-2'>
+          <ShoppingCart className='text-primary size-8' />
+          <span className='absolute -top-2 -right-2 bg-secondary text-secondary-foreground rounded-full px-2 py-1 text-xs'>{lengthItems}</span>
+        </Link>
+        
         <Show when='signed-out'>
           <SignInButton>
             <Button
               variant='outline'
               className=' p-2 rounded-md cursor-pointer border-2 border-green-500 hover:border-green-500/60 transition-colors delay-300'
             >
-              Sign In
+              <LogIn className="size-6" />
             </Button>
           </SignInButton>
           <SignUpButton>
@@ -47,7 +55,7 @@ const Navbar = () => {
               variant='outline'
               className=' p-2 rounded-md cursor-pointer border-2 border-blue-500 hover:border-blue-500/60 transition-colors delay-300'
             >
-              Sign Up
+             <UserPlus className="size-6" />
             </Button>
           </SignUpButton>
         </Show>

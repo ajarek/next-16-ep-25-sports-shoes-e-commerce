@@ -13,9 +13,9 @@ import PremiumButton from "@/components/pixel-perfect/premium-button"
 export default function AllShoes() {
   return (
     <div className='min-h-[calc(100vh-64px)] flex flex-col items-center justify-start gap-4 p-4 md:p-8'>
-      <h1 className='text-2xl'>All Shoes</h1>
+      <h1 className='text-2xl'>Women&apos;s Shoes</h1>
       <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center'>
-        {shoes.map((shoe) => (
+        {shoes.filter((shoe) => shoe.category === "Woman").map((shoe) => (
           <Card
             key={shoe.id}
             className='w-full rounded-lg overflow-hidden p-0 shadow-xl '
