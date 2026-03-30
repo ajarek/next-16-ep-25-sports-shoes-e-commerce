@@ -17,7 +17,7 @@ const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
   const shoe = shoes.find((shoe) => shoe.id === Number(id))
   const [count, setCount] = useState(1)
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
-  const {addItemToCart} = useCartStore()
+  const {addItemToCart, items} = useCartStore()
   const {userId} = useAuth()
   const router = useRouter()
 
@@ -27,9 +27,30 @@ const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      toast.error("Please select a size")
+      toast.error("Please select a size",{
+        className: "bg-red-600 text-white text-xl",
+        duration: 2000,
+        position: "top-center",
+        style: {
+          backgroundColor: "#ef4444",
+          color: "white",
+        },
+      })
       return
     }
+    if (items.some((i) => i.id === Number(id))) {
+          toast("Product is already in the cart",{
+            className: "bg-red-600 text-white text-xl",
+            duration: 2000,
+            position: "top-center",
+            style: {
+              backgroundColor: "#ef4444",
+              color: "white",
+            },
+          })
+          router.push("/all")
+          return
+        }
    const cartItem:Product = {
     ...shoe,
     quantity: count,
@@ -37,7 +58,15 @@ const DetailsPage = ({ params }: { params: Promise<{ id: string }> }) => {
     userId: userId || "",
    }
    addItemToCart(cartItem)
-   toast.success("Item added to cart")
+   toast.success("Item added to cart",{
+    className: "bg-green-600 text-white text-xl",
+    duration: 2000,
+    position: "top-center",
+    style: {
+      backgroundColor: "#10b981",
+      color: "white",
+    },
+   })
    router.push("/all")
   }
 
