@@ -19,13 +19,17 @@ const CartPage = () => {
     useCartStore()
   return (
     <div className='min-h-[calc(100vh-64px)] flex flex-col items-center justify-start p-4'>
+      {items.length === 0 ? (
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <span className='text-xl text-red-600 font-bold'>
+            Your cart is empty
+          </span>
+          <PremiumButton link='/all'>Shop Now</PremiumButton>
+        </div>
+      ) : (
       <Table className='w-full'>
         <TableCaption className=''>
-          {items.length === 0 ? (
-            <span className='text-xl text-red-600 font-bold'>
-              Your cart is empty
-            </span>
-          ) : (
+         
             <div className='flex flex-wrap items-center justify-around px-4 gap-4'>
               <span className='text-xl text-background-foreground font-bold'>
                 Total: ${total().toFixed(2)}
@@ -44,7 +48,7 @@ const CartPage = () => {
                 Checkout
               </PremiumButton>
             </div>
-          )}
+          
         </TableCaption>
         <TableHeader>
           <TableRow>
@@ -114,6 +118,7 @@ const CartPage = () => {
           ))}
         </TableBody>
       </Table>
+      )}
     </div>
   )
 }
