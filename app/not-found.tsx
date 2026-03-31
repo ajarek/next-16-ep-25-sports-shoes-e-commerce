@@ -11,15 +11,13 @@ export default function NotFound() {
 
         <p className='max-w-lg  text-lg px-4'>
           The page you are trying to access is not available or the address is
-          incorrect. Try going to the home page or check the correctness
-          of the URL address.
+          incorrect. Try going to the home page or check the correctness of the
+          URL address.
         </p>
 
         <div className='flex gap-3'>
           <Link href='/'>
-            <Button className='rounded-xl  cursor-pointer'>
-              Home page
-            </Button>
+            <Button className='rounded-xl  cursor-pointer'>Home page</Button>
           </Link>
         </div>
 

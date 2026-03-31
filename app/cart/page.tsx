@@ -15,8 +15,14 @@ import { Trash2 } from "lucide-react"
 import Image from "next/image"
 
 const CartPage = () => {
-  const { items, removeItemFromCart, increment, decrement, total,removeAllFromCart } =
-    useCartStore()
+  const {
+    items,
+    removeItemFromCart,
+    increment,
+    decrement,
+    total,
+    removeAllFromCart,
+  } = useCartStore()
   return (
     <div className='min-h-[calc(100vh-64px)] flex flex-col items-center justify-start p-4'>
       {items.length === 0 ? (
@@ -27,9 +33,8 @@ const CartPage = () => {
           <PremiumButton link='/all'>Shop Now</PremiumButton>
         </div>
       ) : (
-      <Table className='w-full'>
-        <TableCaption className=''>
-         
+        <Table className='w-full'>
+          <TableCaption className=''>
             <div className='flex flex-wrap items-center justify-around px-4 gap-4'>
               <span className='text-xl text-background-foreground font-bold'>
                 Total: ${total().toFixed(2)}
@@ -37,7 +42,7 @@ const CartPage = () => {
               <Button
                 variant='outline'
                 onClick={() => removeAllFromCart()}
-                className="text-base md:text-xl border-2 border-red-600 dark:border-red-600 cursor-pointer"
+                className='text-base md:text-xl border-2 border-red-600 dark:border-red-600 cursor-pointer'
               >
                 Remove All
               </Button>
@@ -48,76 +53,75 @@ const CartPage = () => {
                 Checkout
               </PremiumButton>
             </div>
-          
-        </TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead className='max-sm:hidden'>Image</TableHead>
-            <TableHead>Product</TableHead>
-            <TableHead className='text-right'>Price</TableHead>
-            <TableHead className='text-right'>Quantity</TableHead>
-            <TableHead className='text-right'>Total</TableHead>
-            <TableHead className='text-right'>Actions</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {items.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell className='max-sm:hidden'>
-                <div className='relative w-12 h-12 overflow-hidden'>
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className='rounded-lg'
-                  />
-                </div>
-              </TableCell>
-              <TableCell>
-                <p className='text-wrap'>{item.name}</p>
-                <p className='text-sm text-muted-foreground'>
-                  {" "}
-                  Size: {item.size}
-                </p>
-              </TableCell>
-              <TableCell className='text-right'>
-                ${item.price.toFixed(2)}
-              </TableCell>
-              <TableCell className='text-right'>
-                <div className='flex items-center justify-end gap-2'>
-                  <Button
-                    variant='outline'
-                    size='sm'
-                    onClick={() => decrement(item.id)}
-                  >
-                    -
-                  </Button>
-                  <span className=''>{item.quantity}</span>
-                  <Button
-                    variant='outline'
-                    size='sm'
-                    onClick={() => increment(item.id)}
-                  >
-                    +
-                  </Button>
-                </div>
-              </TableCell>
-              <TableCell className='text-right'>
-                ${(item.quantity * item.price).toFixed(2)}
-              </TableCell>
-              <TableCell className='text-right'>
-                <Button
-                  variant='outline'
-                  size='sm'
-                  onClick={() => removeItemFromCart(item.id)}
-                >
-                  <Trash2 className='size-5 text-red-600 cursor-pointer' />
-                </Button>
-              </TableCell>
+          </TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className='max-sm:hidden'>Image</TableHead>
+              <TableHead>Product</TableHead>
+              <TableHead className='text-right'>Price</TableHead>
+              <TableHead className='text-right'>Quantity</TableHead>
+              <TableHead className='text-right'>Total</TableHead>
+              <TableHead className='text-right'>Actions</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {items.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell className='max-sm:hidden'>
+                  <div className='relative w-12 h-12 overflow-hidden'>
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className='rounded-lg'
+                    />
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <p className='text-wrap'>{item.name}</p>
+                  <p className='text-sm text-muted-foreground'>
+                    {" "}
+                    Size: {item.size}
+                  </p>
+                </TableCell>
+                <TableCell className='text-right'>
+                  ${item.price.toFixed(2)}
+                </TableCell>
+                <TableCell className='text-right'>
+                  <div className='flex items-center justify-end gap-2'>
+                    <Button
+                      variant='outline'
+                      size='sm'
+                      onClick={() => decrement(item.id)}
+                    >
+                      -
+                    </Button>
+                    <span className=''>{item.quantity}</span>
+                    <Button
+                      variant='outline'
+                      size='sm'
+                      onClick={() => increment(item.id)}
+                    >
+                      +
+                    </Button>
+                  </div>
+                </TableCell>
+                <TableCell className='text-right'>
+                  ${(item.quantity * item.price).toFixed(2)}
+                </TableCell>
+                <TableCell className='text-right'>
+                  <Button
+                    variant='outline'
+                    size='sm'
+                    onClick={() => removeItemFromCart(item.id)}
+                  >
+                    <Trash2 className='size-5 text-red-600 cursor-pointer' />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       )}
     </div>
   )

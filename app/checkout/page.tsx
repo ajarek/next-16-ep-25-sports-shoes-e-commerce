@@ -34,8 +34,8 @@ const CheckoutPage = () => {
   const router = useRouter()
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 0);
-    return () => clearTimeout(timeout);
+    const timeout = setTimeout(() => setIsMounted(true), 0)
+    return () => clearTimeout(timeout)
   }, [])
 
   const subtotal = total()
@@ -43,8 +43,8 @@ const CheckoutPage = () => {
   const taxes = subtotal * 0.05
   const finalTotal = subtotal + shipping + taxes
 
-  const handlePayment = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handlePayment = (e: React.SubmitEvent) => {
+    e.preventDefault()
     toast.success("Payment successful", {
       position: "top-center",
       duration: 4000,
@@ -56,7 +56,7 @@ const CheckoutPage = () => {
   }
 
   if (!isMounted) {
-    return null;
+    return null
   }
 
   return (
@@ -69,10 +69,11 @@ const CheckoutPage = () => {
           <p className='text-muted-foreground'>Complete your order securely.</p>
         </div>
 
-        <form onSubmit={handlePayment} className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'>
-          {/* Main Checkout Form */}
+        <form
+          onSubmit={handlePayment}
+          className='grid grid-cols-1 lg:grid-cols-12 gap-8 items-start'
+        >
           <div className='lg:col-span-7 xl:col-span-8 space-y-8'>
-            {/* Contact Info */}
             <Card className='border-none shadow-lg shadow-black/5 bg-background dark:bg-card'>
               <CardHeader>
                 <CardTitle className='text-xl flex items-center gap-2'>
@@ -109,7 +110,6 @@ const CheckoutPage = () => {
               </CardContent>
             </Card>
 
-            {/* Shipping Address */}
             <Card className='border-none shadow-lg shadow-black/5 bg-background dark:bg-card'>
               <CardHeader>
                 <CardTitle className='text-xl flex items-center gap-2'>
@@ -135,7 +135,11 @@ const CheckoutPage = () => {
                 </div>
                 <div className='space-y-2'>
                   <Label htmlFor='address'>Street Address</Label>
-                  <Input id='address' placeholder='123 Sneaker St, Apt 4B' required />
+                  <Input
+                    id='address'
+                    placeholder='123 Sneaker St, Apt 4B'
+                    required
+                  />
                 </div>
                 <div className='grid grid-cols-2 lg:grid-cols-3 gap-4'>
                   <div className='space-y-2'>
@@ -154,7 +158,6 @@ const CheckoutPage = () => {
               </CardContent>
             </Card>
 
-            {/* Payment Method */}
             <Card className='border-none shadow-lg shadow-black/5 bg-background dark:bg-card overflow-hidden'>
               <div className='bg-primary/5 p-6 border-b border-border/50'>
                 <CardTitle className='text-xl flex items-center gap-2'>
@@ -173,7 +176,6 @@ const CheckoutPage = () => {
                   onValueChange={setPaymentMethod}
                   className='space-y-3'
                 >
-                  {/* Credit Card */}
                   <div
                     className={`flex items-center justify-between rounded-lg border-2 p-4 transition-all cursor-pointer ${paymentMethod === "card" ? "border-primary bg-primary/5" : "border-border/50 hover:border-primary/50"}`}
                   >
@@ -200,7 +202,6 @@ const CheckoutPage = () => {
                     </div>
                   </div>
 
-                  {/* PayPal */}
                   <div
                     className={`flex items-center justify-between rounded-lg border-2 p-4 transition-all cursor-pointer ${paymentMethod === "paypal" ? "border-primary bg-primary/5" : "border-border/50 hover:border-primary/50"}`}
                   >
@@ -228,7 +229,6 @@ const CheckoutPage = () => {
                   </div>
                 </RadioGroup>
 
-                {/* Card input details (show only if card chosen) */}
                 {paymentMethod === "card" && (
                   <div className='mt-6 space-y-4 animate-in fade-in slide-in-from-top-4 duration-300'>
                     <div className='space-y-2'>
@@ -251,7 +251,11 @@ const CheckoutPage = () => {
                     </div>
                     <div className='space-y-2'>
                       <Label htmlFor='name-on-card'>Name on Card</Label>
-                      <Input id='name-on-card' placeholder='John Doe' required />
+                      <Input
+                        id='name-on-card'
+                        placeholder='John Doe'
+                        required
+                      />
                     </div>
                   </div>
                 )}
@@ -259,7 +263,6 @@ const CheckoutPage = () => {
             </Card>
           </div>
 
-          {/* Right Column: Order Summary */}
           <div className='lg:col-span-5 xl:col-span-4 sticky top-24'>
             <Card className='border border-border/50 shadow-xl shadow-black/10 bg-background/60 backdrop-blur-xl dark:bg-card/80 overflow-hidden'>
               <CardHeader className='pb-4 border-b border-border/50 bg-muted/30'>
@@ -325,19 +328,17 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className='pt-4'>
-                  <Button  
-                  className={cn(
-                    "bg-muted text-muted-foreground px-4 py-3 rounded-md cursor-pointer font-medium transition-all active:scale-95",
-                    "md:h-12 h-8 text-md md:text-xl cursor-pointer hover:bg-transparent"
-                  )}
-                  style={{
-                    boxShadow:
-                      "0.444584px 0.444584px 0.628737px -1px rgba(0, 0, 0, 0.26), 1.21072px 1.21072px 1.71222px -1.5px rgba(0, 0, 0, 0.247), 2.6583px 2.6583px 3.75941px -2.25px rgba(0, 0, 0, 0.23), 5.90083px 5.90083px 8.34503px -3px rgba(0, 0, 0, 0.192), 10px 10px 21.2132px -3.75px rgba(0, 0, 0, 0.055), -0.5px -0.5px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px rgba(0, 0, 0, 0.15)",
-                  }} 
-                  type="submit"
+                  <Button
+                    className={cn(
+                      "bg-muted text-muted-foreground px-4 py-3 rounded-md cursor-pointer font-medium transition-all active:scale-95",
+                      "md:h-12 h-8 text-md md:text-xl cursor-pointer hover:bg-transparent",
+                    )}
+                    style={{
+                      boxShadow:
+                        "0.444584px 0.444584px 0.628737px -1px rgba(0, 0, 0, 0.26), 1.21072px 1.21072px 1.71222px -1.5px rgba(0, 0, 0, 0.247), 2.6583px 2.6583px 3.75941px -2.25px rgba(0, 0, 0, 0.23), 5.90083px 5.90083px 8.34503px -3px rgba(0, 0, 0, 0.192), 10px 10px 21.2132px -3.75px rgba(0, 0, 0, 0.055), -0.5px -0.5px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 1px #FFFFFF, inset -1px -1px 1px rgba(0, 0, 0, 0.15)",
+                    }}
+                    type='submit'
                   >
-            
-          
                     <Lock className='w-4 h-4' />
                     Pay ${finalTotal.toFixed(2)}
                     <ChevronRight className='w-5 h-5 transition-transform group-hover:translate-x-1' />

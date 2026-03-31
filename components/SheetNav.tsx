@@ -54,7 +54,9 @@ export function SheetNav() {
                 )}
               >
                 {link.icon}
-                <span className='text-sm font-medium uppercase'>{link.label}</span>
+                <span className='text-sm font-medium uppercase'>
+                  {link.label}
+                </span>
               </Link>
             ))}
           </div>
